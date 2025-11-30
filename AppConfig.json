@@ -1,0 +1,36 @@
+{
+  "applications": [
+    {
+      "name": "7-Zip",
+      "installCommand": "7z2301-x64.exe /S",
+      "uninstallCommand": "C:\\Program Files\\7-Zip\\Uninstall.exe /S",
+      "detectionPath": "C:\\Program Files\\7-Zip\\7z.exe"
+    },
+    {
+      "name": "GoogleChrome",
+      "installCommand": "GoogleChromeStandaloneEnterprise64.msi /qn",
+      "uninstallCommand": "msiexec /x {PRODUCT_CODE} /qn",
+      "detectionRegistry": {
+        "path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Google Chrome",
+        "valueName": "DisplayVersion"
+      }
+    },
+    {
+      "name": "AdobeReader",
+      "installCommand": "AcroRdrDC.exe /sAll /msi EULA_ACCEPT=YES",
+      "uninstallCommand": "msiexec /x {AC76BA86-7AD7-1033-7B44-AC0F074E4100} /qn",
+      "detectionPath": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe"
+    },
+    {
+      "name": "Notepad++",
+      "installCommand": "npp.8.5.8.Installer.x64.exe /S",
+      "uninstallCommand": "C:\\Program Files\\Notepad++\\uninstall.exe /S",
+      "detectionPath": "C:\\Program Files\\Notepad++\\notepad++.exe"
+    }
+  ],
+  "defaults": {
+    "installCommand": "{filename} /S",
+    "uninstallCommand": "{filename} /S",
+    "detectionMethod": "fileExists"
+  }
+}

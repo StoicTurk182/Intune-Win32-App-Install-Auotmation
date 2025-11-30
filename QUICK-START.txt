@@ -1,0 +1,134 @@
+================================================================================
+INTUNE WIN32 PACKAGE BULK CREATOR - SIMPLIFIED
+Quick Start Guide
+================================================================================
+
+WHAT'S THIS?
+------------
+Simple, reliable bulk packaging for Intune Win32 apps.
+No wrapper scripts - just direct installer execution.
+Fast, clean, and easy to troubleshoot.
+
+QUICK START (3 STEPS):
+----------------------
+1. Place your EXE/MSI installers in the "Source" folder
+
+2. Open PowerShell in this directory and run:
+   .\New-IntuneWin32Package-Simple.ps1 -SourceFolder ".\Source" -OutputFolder ".\Output" -GenerateDetectionScripts
+
+3. Find your packages in: .\Output\Packages\
+
+WHAT YOU'LL GET:
+----------------
+✓ .intunewin packages (one per installer)
+✓ Detection scripts for Intune
+✓ CSV report with install/uninstall commands
+✓ All files named to match your original installers
+
+INTUNE CONFIGURATION:
+---------------------
+The script tells you exactly what commands to use:
+
+For EXE files:
+  Install:   installer.exe /S
+  Uninstall: installer.exe /S
+
+For MSI files:
+  Install:   msiexec /i "installer.msi" /qn
+  Uninstall: msiexec /x "installer.msi" /qn
+
+CUSTOM INSTALL SWITCHES:
+------------------------
+If your app needs specific switches, edit AppConfig.json:
+
+{
+  "applications": [
+    {
+      "name": "7-Zip",
+      "installCommand": "7z2301-x64.exe /S",
+      "uninstallCommand": "C:\\Program Files\\7-Zip\\Uninstall.exe /S"
+    }
+  ]
+}
+
+Then run with:
+  .\New-IntuneWin32Package-Simple.ps1 -SourceFolder ".\Source" -OutputFolder ".\Output" -ConfigFile ".\AppConfig.json" -GenerateDetectionScripts
+
+COMMON SILENT SWITCHES:
+-----------------------
+7-Zip:        /S
+Chrome:       /silent /install
+Adobe Reader: /sAll /msi EULA_ACCEPT=YES
+Notepad++:    /S
+VLC:          /S
+Firefox:      -ms
+Zoom:         /silent
+
+TROUBLESHOOTING:
+----------------
+✗ No installers found?
+  → Check Source folder has .exe or .msi files
+
+✗ Packaging failed?
+  → Run PowerShell as Administrator
+  → Check IntuneWinAppUtil.exe is in Tools folder
+
+✗ Wrong install command?
+  → Edit AppConfig.json with correct switch
+  → Or edit CSV report after packaging
+
+FOLDER STRUCTURE:
+-----------------
+IntunePackaging-Simple/
+├── New-IntuneWin32Package-Simple.ps1  ← Main script
+├── README.md                          ← Full documentation
+├── AppConfig.json                     ← Custom install commands
+├── Tools/
+│   └── IntuneWinAppUtil.exe          ← Microsoft's tool
+├── Source/                            ← PUT INSTALLERS HERE
+└── Output/
+    ├── Packages/                      ← Upload these to Intune
+    ├── DetectionScripts/              ← Use these in Intune
+    └── Logs/                          ← CSV with commands
+
+NEXT STEPS:
+-----------
+1. Package your apps using the quick start command above
+2. Open the CSV report in Output\Logs\
+3. Upload .intunewin files to Intune
+4. Copy install/uninstall commands from CSV into Intune
+5. Upload detection scripts to Intune
+6. Assign and deploy!
+
+EXAMPLE OUTPUT:
+---------------
+After running the script, you'll see:
+
+Successfully Packaged Applications:
+
+AppName      InstallCommand              UninstallCommand
+-------      --------------              ----------------
+7-Zip        7z.exe /S                  7z.exe /S
+Chrome       msiexec /i "Chrome.msi" /qn msiexec /x "Chrome.msi" /qn
+
+Copy these commands directly into Intune!
+
+WHY THIS APPROACH?
+------------------
+✓ Simple = Reliable
+✓ Direct installer execution (standard Microsoft approach)
+✓ No additional complexity
+✓ Easy to troubleshoot
+✓ Works with all installers
+
+NEED MORE HELP?
+---------------
+See README.md for:
+- Detailed parameters
+- AppConfig.json examples
+- Common install switches
+- Troubleshooting guide
+
+================================================================================
+Ready? Put installers in Source folder and run the command above!
+================================================================================

@@ -1,0 +1,3 @@
+"AppName","FileName","SourceFile","PackagePath","InstallCommand","UninstallCommand","Status"
+"cpu-z_2.17-en","cpu-z_2.17-en.exe","C:\Users\Administrator\OneDrive - Andrew J IT Labs\INTUNE PROJECT\IntunePackaging-Simple\Source\cpu-z_2.17-en.exe",".\Output\Packages\cpu-z_2.17-en.intunewin","cpu-z_2.17-en.exe /S","cpu-z_2.17-en.exe /S","Success"
+"GPU-Z.2.68.0","GPU-Z.2.68.0.exe","C:\Users\Administrator\OneDrive - Andrew J IT Labs\INTUNE PROJECT\IntunePackaging-Simple\Source\GPU-Z.2.68.0.exe",".\Output\Packages\GPU-Z.2.68.0.intunewin","GPU-Z.2.68.0.exe /S","GPU-Z.2.68.0.exe /S","Success"
