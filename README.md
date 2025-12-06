@@ -257,7 +257,7 @@ npp.8.5.8... npp.8.5.8.Installer.x64.exe          npp.8.5.8.Installer.x64.exe /S
 
 ---
 
-**Author:** Orion  
+**Author:** Andrew J Jones
 **Version:** 3.0 (Simplified)  
 **Last Updated:** 2024-11-29  
 **PowerShell Version:** 5.1+
