@@ -130,5 +130,5 @@ See README.md for:
 - Troubleshooting guide
 
 ================================================================================
-Ready? Put installers in Source folder and run the command above!
+Put installers in Source folder and run the command above!
 ================================================================================
